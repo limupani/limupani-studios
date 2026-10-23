@@ -1,0 +1,31 @@
+/* ==========================================================================
+   THEME — colours, fonts and sizes used across the whole site.
+   Change a value here and it updates everywhere.
+   ========================================================================== */
+:root {
+  /* Colours */
+  --color-bg: #ffffff;
+  --color-text: #1f1f1f;
+  --color-ink: #3a3a3a; /* outlines, focus rings */
+
+  /* Fonts (Manrope is loaded in src/main.jsx) */
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Widest the page content gets on big screens (landing art + footer) */
+  --content-max-width: 820px;
+
+  /* Clickable buttons on the landing page: the hard drop shadow.
+     "cqw" = 1% of the landing artwork's width, so it scales with the art. */
+  --button-shadow-color: #3a3a3a;
+  --button-shadow-x: 0.4cqw;
+  --button-shadow-y: 0.4cqw;
+  /* ...and how it grows when you hover a button */
+  --button-shadow-hover-x: 0.8cqw;
+  --button-shadow-hover-y: 0.8cqw;
+  --button-lift: 0.35cqw; /* how far the button lifts on hover */
+
+  /* Footer text */
+  /* scales with the footer's width (cqw) so it wraps the same at every size */
+  --footer-text-size: clamp(0.64rem, 1.38cqw, 0.8rem);
+  --footer-text-color: #1f1f1f;
+}

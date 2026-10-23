@@ -1,0 +1,55 @@
+.scene {
+  position: relative;
+  width: 100%;
+  /* lets "cqw" units (used for the button shadow) mean "% of the artwork width" */
+  container-type: inline-size;
+}
+
+.item {
+  position: absolute;
+  display: block;
+  line-height: 0;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ---- clickable buttons ---- */
+.clickable {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.clickable .image {
+  filter: drop-shadow(var(--button-shadow-x) var(--button-shadow-y) 0 var(--button-shadow-color));
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+/* hover / keyboard focus: lift up, shadow grows */
+.clickable:hover .image,
+.clickable:focus-visible .image {
+  transform: translate(calc(var(--button-lift) * -1), calc(var(--button-lift) * -1));
+  filter: drop-shadow(var(--button-shadow-hover-x) var(--button-shadow-hover-y) 0 var(--button-shadow-color));
+}
+
+/* pressed: sinks into the page, shadow disappears */
+.clickable:active .image {
+  transform: translate(var(--button-shadow-x), var(--button-shadow-y));
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.clickable:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clickable .image {
+    transition: none;
+  }
+}

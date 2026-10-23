@@ -1,0 +1,51 @@
+.footer {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 3.4rem 0 4rem;
+  container-type: inline-size; /* lets the text size follow the footer width */
+}
+
+/* logo | description | location — same proportions as the design */
+.inner {
+  width: 88%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 111fr 350fr 129fr;
+  column-gap: 4%;
+  align-items: end;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.description,
+.location {
+  margin: 0;
+  font-size: var(--footer-text-size);
+  line-height: 1.25;
+  color: var(--footer-text-color);
+}
+
+.location {
+  text-align: right;
+}
+
+@media (max-width: 560px) {
+  .inner {
+    grid-template-columns: 1fr;
+    row-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .logo {
+    width: 9rem;
+  }
+
+  .location {
+    text-align: left;
+  }
+}
