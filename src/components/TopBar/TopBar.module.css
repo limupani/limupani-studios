@@ -1,0 +1,48 @@
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 6.5cqw 6.4cqw 0 7.2cqw;
+}
+
+.link {
+  display: block;
+  line-height: 0;
+  transition: transform 140ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+.home {
+  width: 6.3cqw;
+}
+
+.cart {
+  width: 8.7cqw;
+}
+
+.link:hover,
+.link:focus-visible {
+  transform: translateY(-0.5cqw);
+}
+
+.link:active {
+  transform: translateY(0.2cqw);
+}
+
+.link:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition: none;
+  }
+}

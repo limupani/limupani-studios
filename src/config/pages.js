@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PAGES — the four pages the landing-page buttons open.
+   PAGES — the four pages the landing-page buttons open (plus the cart).
    - path:    the address in the browser (e.g. /shop)
    - title:   page heading + browser tab title
    - message: the text shown on the page for now
@@ -27,6 +27,13 @@ export const pages = {
     title: 'Tabloids',
     message: 'Tabloids — coming soon.',
   },
+}
+
+// The cart icon on the shop page opens this. Placeholder until the cart is built.
+export const cartPage = {
+  path: '/cart',
+  title: 'Cart',
+  message: 'Your cart is empty.',
 }
 
 export const notFound = {

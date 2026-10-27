@@ -1,0 +1,26 @@
+.shop {
+  padding-bottom: 4cqw;
+}
+
+/* the shop-bag drawing — same hard shadow as the landing-page buttons */
+.shopIcon {
+  display: block;
+  width: 13.3cqw;
+  height: auto;
+  margin: 4.1cqw auto 0;
+  filter: drop-shadow(var(--button-shadow-x) var(--button-shadow-y) 0 var(--button-shadow-color));
+  user-select: none;
+}
+
+.heading {
+  margin: 12.55cqw 0 0;
+  text-align: center;
+  font-size: 6.15cqw;
+  line-height: 1;
+}
+
+.empty {
+  margin: 8cqw 0 0;
+  text-align: center;
+  font-size: 5cqw;
+}

@@ -23,15 +23,35 @@ import pencil from './doodles/pencil.png'
 import person from './doodles/person.png'
 import star from './doodles/star.png'
 import worm from './doodles/worm.png'
+import candy from './doodles/candy.png'
+import butterfly from './doodles/butterfly.png'
+import crown from './doodles/crown.png'
+import lemon from './doodles/lemon.png'
+
+import home from './ui/home.png'
+import cart from './ui/cart.png'
+
+import stickers from './categories/stickers.png'
+import keychains from './categories/keychains.png'
+import prints from './categories/prints.png'
+
+import brownsBlanket from './products/browns-blanket.jpg'
+import lemonPlushie from './products/lemon-plushie.jpg'
+import petGoat from './products/pet-goat.jpg'
+import lemonJuice from './products/lemon-juice.jpg'
 
 import back from './handwriting/back.png'
 import bring from './handwriting/bring.png'
 import childLike from './handwriting/child-like.png'
 import wonder from './handwriting/wonder.png'
+import tagline from './handwriting/tagline.png'
 
 export const images = {
   brand: { starLogo, logoBnw },
   buttons: { shop, comics, letsTalk, tabloids },
-  doodles: { ant, apple, bread, car, cloud, dino, hand, house, pencil, person, star, worm },
-  handwriting: { bring, back, childLike, wonder },
+  doodles: { ant, apple, bread, car, cloud, dino, hand, house, pencil, person, star, worm, butterfly, candy, crown, lemon },
+  handwriting: { bring, back, childLike, wonder, tagline },
+  ui: { home, cart },
+  categories: { stickers, keychains, prints },
+  products: { brownsBlanket, lemonPlushie, petGoat, lemonJuice },
 }

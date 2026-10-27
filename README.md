@@ -20,7 +20,11 @@ npm run build      # makes the production version in /dist
 | Which drawings are clickable and where they go      | `src/config/landing.js` (`link`) |
 | Names, addresses and placeholder text of the 4 pages| `src/config/pages.js`           |
 | Site name (browser tab), logo on inner pages        | `src/config/site.js`            |
-| Colours, font, button shadow, max page width        | `src/styles/theme.css`          |
+| Products (name, price, category, picture)           | `src/config/products.js`        |
+| Shop categories (stickers / keychains / prints)     | `src/config/shop.js`            |
+| Currency shown after prices                         | `src/config/site.js`            |
+| Colours, fonts, button shadow, max page width       | `src/styles/theme.css`          |
+| The site font                                       | replace `src/assets/fonts/limu-regular.ttf` |
 | Swap a drawing                                      | replace the file in `src/assets/images/…` (same name) |
 | Add a new drawing                                   | add the file, list it in `src/assets/images/index.js`, then add a line in `landing.js` |
 
@@ -29,8 +33,8 @@ site scales them to every screen automatically.
 
 ## Building out a page
 
-`src/pages/Shop.jsx`, `Comics.jsx`, `LetsTalk.jsx` and `Tabloids.jsx` are
-placeholders. Replace the `<PageShell />` inside one of them with the real page
+`Comics.jsx`, `LetsTalk.jsx`, `Tabloids.jsx` and `Cart.jsx` in `src/pages/` are
+placeholders (the Shop page is built). Replace the `<PageShell />` inside one of them with the real page
 when you are ready. The footer is added automatically to every page by
 `src/components/Layout`.
 
@@ -39,7 +43,8 @@ when you are ready. The footer is added automatically to every page by
 ```
 src/
   assets/images/   all drawings + index.js (the image registry)
-  components/      Layout, Footer, Scene (landing artwork), PageShell
+  components/      Layout, Footer, Scene (landing artwork), PageShell,
+                   TopBar, CategoryTabs, ProductGrid, DesignCanvas
   config/          the editable content files listed above
   pages/           one file per page
   styles/          theme.css (variables) + global.css (resets)

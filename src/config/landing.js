@@ -32,10 +32,14 @@ export const landing = {
     { id: 'logo', image: brand.starLogo, x: 287, y: 113, width: 166, alt: 'Limupani Studios' },
 
     // Background doodles
+    { id: 'butterfly', image: doodles.butterfly, x: 100, y: 401, width: 44 },
+    { id: 'lemon', image: doodles.lemon, x: 120, y: 201, width: 50 },
+    { id: 'crown', image: doodles.crown, x: 580, y: 101, width: 56 },
+    { id: 'candy', image: doodles.candy, x: 600, y: 301, width: 70 },
     { id: 'apple', image: doodles.apple, x: 223, y: 401, width: 44 },
     { id: 'cloud', image: doodles.cloud, x: 76, y: 560, width: 90 },
     { id: 'worm', image: doodles.worm, x: 346, y: 475, width: 70 },
-    //{ id: 'bring', image: handwriting.bring, x: 178, y: 555, width: 75 },
+    { id: 'tagline', image: handwriting.tagline, x: 270, y: 310, width: 200 },
     { id: 'person', image: doodles.person, x: 111, y: 720, width: 57 },
     { id: 'hand', image: doodles.hand, x: 516, y: 638, width: 91, rotate: 18 },
     //{ id: 'back', image: handwriting.back, x: 471, y: 791, width: 66 },
@@ -48,7 +52,6 @@ export const landing = {
     { id: 'ant', image: doodles.ant, x: 542, y: 1370, width: 79 },
     //{ id: 'wonder', image: handwriting.wonder, x: 391, y: 1334, width: 94 },
     { id: 'star', image: doodles.star, x: 566, y: 1500, width: 55 },
-    { id: 'apple', image: doodles.apple, x: 166, y: 1551, width: 44 },
     
 
     // Clickable buttons

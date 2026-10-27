@@ -8,4 +8,7 @@ export const site = {
   // Show the star logo (linking back home) at the top of the inner pages
   // (Shop, Comics, Let's talk, Tabloids).
   showLogoOnSubpages: true,
+
+  // Shown after every price, e.g. "300 PKR"
+  currency: 'PKR',
 }

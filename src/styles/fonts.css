@@ -1,0 +1,8 @@
+/* The studio's handwriting font. It only comes in one weight (regular). */
+@font-face {
+  font-family: 'Limu Handwriting';
+  src: url('../assets/fonts/limu-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
