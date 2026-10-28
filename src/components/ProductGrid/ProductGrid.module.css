@@ -38,10 +38,13 @@
 
 .image {
   display: block;
-  width: 95.1%;
-  aspect-ratio: 235 / 256;
-  object-fit: cover;
-  margin: 2.4% 0 0 2.4%;
+  width: 100%;
+  aspect-ratio: 247 / 261;   /* the area above the "Matte Sticker" text (~76% of card height) */
+  box-sizing: border-box;
+  padding: 10%;              /* equal space on all sides, bigger = smaller sticker */
+  object-fit: contain;       /* never crop */
+  object-position: center;   /* centered inside the padded area */
+  margin: 0;
   user-select: none;
 }
 
