@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:server": "npm --prefix server run dev",
+    "setup:server": "npm --prefix server install"
   },
   "dependencies": {
     "@fontsource/manrope": "^5.3.0",

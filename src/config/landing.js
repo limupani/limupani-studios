@@ -25,39 +25,34 @@ const { brand, buttons, doodles, handwriting } = images
 
 export const landing = {
   designWidth: 737, // width of the original design
-  sceneHeight: 1600, // height of the artwork area (the footer sits below it)
+  sceneHeight: 1440, // height of the artwork area (the footer sits below it)
 
   items: [
     // Logo — scrolls away with the page
     { id: 'logo', image: brand.starLogo, x: 287, y: 113, width: 166, alt: 'Limupani Studios' },
 
     // Background doodles
-    { id: 'butterfly', image: doodles.butterfly, x: 100, y: 401, width: 44 },
-    { id: 'lemon', image: doodles.lemon, x: 120, y: 201, width: 50 },
-    { id: 'crown', image: doodles.crown, x: 580, y: 101, width: 56 },
-    { id: 'candy', image: doodles.candy, x: 600, y: 301, width: 70 },
     { id: 'apple', image: doodles.apple, x: 223, y: 401, width: 44 },
-    { id: 'cloud', image: doodles.cloud, x: 76, y: 560, width: 90 },
-    { id: 'worm', image: doodles.worm, x: 346, y: 475, width: 70 },
-    { id: 'tagline', image: handwriting.tagline, x: 270, y: 310, width: 200 },
-    { id: 'person', image: doodles.person, x: 111, y: 720, width: 57 },
+    { id: 'cloud', image: doodles.cloud, x: 67, y: 477, width: 79 },
+    { id: 'worm', image: doodles.worm, x: 346, y: 475, width: 60 },
+    { id: 'bring', image: handwriting.bring, x: 178, y: 555, width: 75 },
+    { id: 'person', image: doodles.person, x: 111, y: 663, width: 48 },
     { id: 'hand', image: doodles.hand, x: 516, y: 638, width: 91, rotate: 18 },
-    //{ id: 'back', image: handwriting.back, x: 471, y: 791, width: 66 },
-    { id: 'house', image: doodles.house, x: 201, y: 970, width: 47 },
-    { id: 'car', image: doodles.car, x: 476, y: 978, width: 126 },
-    { id: 'bread', image: doodles.bread, x: 60, y: 1133, width: 91 },
-    //{ id: 'child-like', image: handwriting.childLike, x: 187, y: 980, width: 122 },
-    { id: 'pencil', image: doodles.pencil, x: 320, y: 1108, width: 91, rotate: 15 },
-    { id: 'dino', image: doodles.dino, x: 300, y: 1400, width: 130 },
-    { id: 'ant', image: doodles.ant, x: 542, y: 1370, width: 79 },
-    //{ id: 'wonder', image: handwriting.wonder, x: 391, y: 1334, width: 94 },
-    { id: 'star', image: doodles.star, x: 566, y: 1500, width: 55 },
-    
+    { id: 'back', image: handwriting.back, x: 471, y: 791, width: 66 },
+    { id: 'house', image: doodles.house, x: 201, y: 821, width: 47 },
+    { id: 'car', image: doodles.car, x: 476, y: 878, width: 126 },
+    { id: 'bread', image: doodles.bread, x: 60, y: 933, width: 91 },
+    { id: 'child-like', image: handwriting.childLike, x: 187, y: 980, width: 122 },
+    { id: 'pencil', image: doodles.pencil, x: 350, y: 968, width: 91, rotate: 15 },
+    { id: 'dino', image: doodles.dino, x: 283, y: 1149, width: 130 },
+    { id: 'ant', image: doodles.ant, x: 542, y: 1208, width: 79 },
+    { id: 'wonder', image: handwriting.wonder, x: 391, y: 1334, width: 94 },
+    { id: 'star', image: doodles.star, x: 566, y: 1319, width: 55 },
 
     // Clickable buttons
-    { id: 'shop', image: buttons.shop, x: 525, y: 439, width: 110, alt: 'Shop', link: pages.shop.path },
-    { id: 'comics', image: buttons.comics, x: 288, y: 670, width: 116, alt: 'Comics', link: pages.comics.path },
-    { id: 'lets-talk', image: buttons.letsTalk, x: 480, y: 1154, width: 185, alt: "Let's talk", link: pages.letsTalk.path },
-    { id: 'tabloids', image: buttons.tabloids, x: 86, y: 1270, width: 128, alt: 'Tabloids (coming soon)', link: pages.tabloids.path },
+    { id: 'shop', image: buttons.shop, x: 525, y: 439, width: 99, alt: 'Shop', link: pages.shop.path },
+    { id: 'comics', image: buttons.comics, x: 288, y: 616, width: 116, alt: 'Comics', link: pages.comics.path },
+    { id: 'lets-talk', image: buttons.letsTalk, x: 480, y: 994, width: 185, alt: "Let's talk", link: pages.letsTalk.path },
+    { id: 'tabloids', image: buttons.tabloids, x: 86, y: 1085, width: 128, alt: 'Tabloids (coming soon)', link: pages.tabloids.path },
   ],
 }

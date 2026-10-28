@@ -45,6 +45,11 @@
   user-select: none;
 }
 
+/* sold out: the picture fades back */
+.soldOutImage {
+  opacity: 0.45;
+}
+
 .details {
   position: absolute;
   left: 0;

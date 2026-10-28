@@ -6,8 +6,8 @@ import CategoryTabs from '../components/CategoryTabs/CategoryTabs'
 import ProductGrid from '../components/ProductGrid/ProductGrid'
 import { pages } from '../config/pages'
 import { shop } from '../config/shop'
-import { products } from '../config/products'
 import useDocumentTitle from '../hooks/useDocumentTitle'
+import useProducts from '../hooks/useProducts'
 import styles from './Shop.module.css'
 
 export default function Shop() {
@@ -22,6 +22,8 @@ export default function Shop() {
   const selectCategory = (id) => {
     setSearchParams(id ? { category: id } : {})
   }
+
+  const { products, status, reload } = useProducts()
 
   const visibleProducts = selected ? products.filter((p) => p.category === selected) : products
   const heading = selected
@@ -43,11 +45,23 @@ export default function Shop() {
 
         <h2 className={styles.heading}>{heading}</h2>
 
-        {visibleProducts.length > 0 ? (
-          <ProductGrid products={visibleProducts} />
-        ) : (
-          <p className={styles.empty}>{shop.emptyMessage}</p>
+        {status === 'loading' && <p className={styles.message}>{shop.loadingMessage}</p>}
+
+        {status === 'error' && (
+          <div className={styles.message}>
+            <p>{shop.errorMessage}</p>
+            <button type="button" className={styles.retry} onClick={reload}>
+              {shop.retryLabel}
+            </button>
+          </div>
         )}
+
+        {status === 'ready' &&
+          (visibleProducts.length > 0 ? (
+            <ProductGrid products={visibleProducts} />
+          ) : (
+            <p className={styles.message}>{shop.emptyMessage}</p>
+          ))}
       </div>
     </DesignCanvas>
   )

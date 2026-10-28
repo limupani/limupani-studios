@@ -11,6 +11,54 @@ npm run dev        # opens a live preview (usually http://localhost:5173)
 npm run build      # makes the production version in /dist
 ```
 
+## Run it with the backend (products come from the database)
+
+```bash
+# terminal 1 — the API
+npm run setup:server        # once: installs the server's packages
+npm run dev:server
+
+# terminal 2 — the website
+npm run dev
+```
+
+First do the one-time database setup below, or the shop will say
+"couldn't load the products".
+
+## Backend: one-time database setup (Supabase)
+
+1. Make a free account at supabase.com and create a **New project**
+   (name it e.g. `limupani`, choose the region nearest to you, and save the
+   database password somewhere safe).
+2. In the project, click **Connect** and choose **Session pooler**. Copy the
+   connection string and replace `[YOUR-PASSWORD]` with your password.
+   Use letters and numbers only in the password, or special characters
+   will break the string.
+3. In the `server` folder, copy `.env.example` to `.env` and paste the string
+   after `DATABASE_URL=`. Never share or upload `.env`.
+4. Create the table and add the four starter products:
+   ```bash
+   cd server
+   npm run db:setup      # should end with "Done. 4 products in the database."
+   ```
+   You can see the rows in Supabase under **Table Editor → products**.
+5. Start the API and the website (see above) and open `/shop`.
+
+### Managing products for now
+Until the admin page exists, use Supabase's **Table Editor → products**:
+add a row to add a product, change `stock` to update inventory, untick
+`active` to hide a product. For the picture, put the image file in
+`public/products/` and set `image_url` to `/products/your-file.jpg`.
+
+### API
+| Request                            | What it does                      |
+| ---------------------------------- | --------------------------------- |
+| `GET /api/health`                  | `{ "ok": true }`                  |
+| `GET /api/products`                | all active products               |
+| `GET /api/products?category=prints`| only that category                |
+
+Run the API's tests with `cd server && npm test`.
+
 ## Where to change what
 
 | I want to change…                                   | Open this file                  |
@@ -20,7 +68,7 @@ npm run build      # makes the production version in /dist
 | Which drawings are clickable and where they go      | `src/config/landing.js` (`link`) |
 | Names, addresses and placeholder text of the 4 pages| `src/config/pages.js`           |
 | Site name (browser tab), logo on inner pages        | `src/config/site.js`            |
-| Products (name, price, category, picture)           | `src/config/products.js`        |
+| Products (name, price, stock, category, picture)    | the database (see "Backend" below) |
 | Shop categories (stickers / keychains / prints)     | `src/config/shop.js`            |
 | Currency shown after prices                         | `src/config/site.js`            |
 | Colours, fonts, button shadow, max page width       | `src/styles/theme.css`          |
@@ -46,9 +94,17 @@ src/
   components/      Layout, Footer, Scene (landing artwork), PageShell,
                    TopBar, CategoryTabs, ProductGrid, DesignCanvas
   config/          the editable content files listed above
+  api/, hooks/     loading products from the API (useProducts)
   pages/           one file per page
   styles/          theme.css (variables) + global.css (resets)
   routes.jsx       which page lives at which address
+
+server/            the Express API (see "Backend" above)
+  sql/             schema.sql (the table) and seed.sql (starter products)
+  src/             app.js, routes/products.js, db.js, config.js
+  scripts/         setup-db.js
+  test/            API tests
+public/products/   product pictures (the database stores their links)
 ```
 
 ## Deploying later

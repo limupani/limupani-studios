@@ -19,8 +19,28 @@
   line-height: 1;
 }
 
-.empty {
+.message {
   margin: 8cqw 0 0;
   text-align: center;
   font-size: 5cqw;
+}
+
+.message p {
+  margin: 0 0 2cqw;
+}
+
+.retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-accent);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+.retry:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 6px;
 }
