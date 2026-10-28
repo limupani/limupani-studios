@@ -48,7 +48,7 @@ First do the one-time database setup below, or the shop will say
 Until the admin page exists, use Supabase's **Table Editor → products**:
 add a row to add a product, change `stock` to update inventory, untick
 `active` to hide a product. For the picture, put the image file in
-`public/products/` and set `image_url` to `/products/your-file.png`.
+`public/products/` and set `image_url` to `/products/your-file.jpg`.
 
 ### API
 | Request                            | What it does                      |
@@ -107,7 +107,19 @@ server/            the Express API (see "Backend" above)
 public/products/   product pictures (the database stores their links)
 ```
 
-## Deploying later
+## Deploying for free (Vercel + Supabase, no card)
 
-`vercel.json` is already included so page addresses like `/shop` keep working
-when you refresh on Vercel.
+Two Vercel projects from the same GitHub repo:
+
+1. **API** — Root Directory `server`. Environment variables:
+   `DATABASE_URL` (Supabase **Transaction pooler** string, port 6543),
+   `DB_POOL_MAX=1`, `CORS_ORIGINS` (the website's address, added after step 2).
+   Check `https://YOUR-API.vercel.app/api/products` shows your products.
+2. **Website** — Root Directory is the main folder (Vite). Environment variable:
+   `VITE_API_URL=https://YOUR-API.vercel.app` (no slash at the end).
+3. Put the website's address into the API project's `CORS_ORIGINS`.
+
+Changing an environment variable on Vercel only affects the *next* deployment:
+use Deployments → ⋯ → Redeploy afterwards.
+
+`vercel.json` in the main folder (website) and in `server/` (API) are already set up.

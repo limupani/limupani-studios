@@ -15,6 +15,8 @@ export function createDb(databaseUrl = config.databaseUrl) {
   const pool = new pg.Pool({
     connectionString: databaseUrl,
     ssl: isLocal ? false : { rejectUnauthorized: false },
+    // Hosts like Vercel can run many copies of the server at once, so they set
+    // DB_POOL_MAX=1 to keep the total number of connections low.
     max: Number(process.env.DB_POOL_MAX) || 5,
   })
 
