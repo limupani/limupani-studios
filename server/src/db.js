@@ -15,7 +15,7 @@ export function createDb(databaseUrl = config.databaseUrl) {
   const pool = new pg.Pool({
     connectionString: databaseUrl,
     ssl: isLocal ? false : { rejectUnauthorized: false },
-    max: 5,
+    max: Number(process.env.DB_POOL_MAX) || 5,
   })
 
   return {
