@@ -25,7 +25,7 @@ async function withServer(db, fn) {
   }
 }
 
-const row = { id: 1, name: 'Pet Goat', type: 'Matte Sticker', category: 'stickers', price: 300, image_url: '/products/pet-goat.jpg', stock: 5 }
+const row = { id: 1, name: 'Pet Goat', type: 'Matte Sticker', category: 'stickers', price: 300, image_url: '/products/pet-goat.png', stock: 5 }
 
 test('GET /api/products returns products in the shape the website expects', async () => {
   const db = fakeDb([row])
@@ -33,7 +33,7 @@ test('GET /api/products returns products in the shape the website expects', asyn
     const res = await fetch(`${base}/api/products`)
     assert.equal(res.status, 200)
     assert.deepEqual(await res.json(), {
-      products: [{ id: 1, name: 'Pet Goat', type: 'Matte Sticker', category: 'stickers', price: 300, image: '/products/pet-goat.jpg', stock: 5 }],
+      products: [{ id: 1, name: 'Pet Goat', type: 'Matte Sticker', category: 'stickers', price: 300, image: '/products/pet-goat.png', stock: 5 }],
     })
     assert.deepEqual(db.calls[0].params, [])
   })

@@ -48,7 +48,7 @@ First do the one-time database setup below, or the shop will say
 Until the admin page exists, use Supabase's **Table Editor → products**:
 add a row to add a product, change `stock` to update inventory, untick
 `active` to hide a product. For the picture, put the image file in
-`public/products/` and set `image_url` to `/products/your-file.jpg`.
+`public/products/` and set `image_url` to `/products/your-file.png`.
 
 ### API
 | Request                            | What it does                      |
