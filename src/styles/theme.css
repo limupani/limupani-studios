@@ -15,6 +15,9 @@
      --font-footer to the same value as --font-body. */
   --font-body: 'Limu Handwriting', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-footer: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    /* The email / phone links on the Let's talk page use a rounded plain font, as in the design.
+     To use Limu there instead, set this to the same value as --font-body. */
+  --font-links: 'Quicksand', 'Manrope', system-ui, sans-serif;
 
   /* Widest the page content gets on big screens (landing art + footer) */
   --content-max-width: 820px;
@@ -28,6 +31,9 @@
   --button-shadow-hover-x: 0.8cqw;
   --button-shadow-hover-y: 0.8cqw;
   --button-lift: 0.35cqw; /* how far the button lifts on hover */
+
+    /* Let's talk page */
+  --color-link: #5f8fc8; /* the blue email and phone links */
 
   /* Product window */
   --color-price: #c34044; /* the red price */

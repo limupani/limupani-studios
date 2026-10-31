@@ -1,0 +1,60 @@
+/* Sizes are in cqw (1% of the page width), measured from the design (346 px wide). */
+
+.page {
+  /* this design puts the home icon a little closer to the corner than the shop does */
+  --topbar-top: 4.9cqw;
+  --topbar-left: 6.1cqw;
+  padding-bottom: 8cqw;
+  text-align: center;
+}
+
+/* the speech-bubble drawing, with the same hard shadow as the landing buttons */
+.icon {
+  display: block;
+  width: 25.4cqw;
+  height: auto;
+  margin: 1.6cqw auto 0;
+  filter: drop-shadow(var(--button-shadow-x) var(--button-shadow-y) 0 var(--button-shadow-color));
+  user-select: none;
+}
+
+.heading {
+  margin: 11.1cqw 0 0;
+  font-size: 6.4cqw;
+  line-height: 1;
+}
+
+.intro {
+  max-width: 78cqw;
+  margin: 3.4cqw auto 0;
+  font-size: 5.2cqw;
+  line-height: 4.62cqw;
+}
+
+.links {
+  margin: 1cqw 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links li {
+  margin-bottom: 1.5cqw;
+}
+
+.links a {
+  color: var(--color-link);
+  font-family: var(--font-links);
+  font-size: 4.25cqw;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.links a:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 4px;
+}

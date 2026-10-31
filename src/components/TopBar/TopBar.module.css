@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 6.5cqw 6.4cqw 0 7.2cqw;
+  /* a page can change these by setting the variables on a parent element */
+  padding: var(--topbar-top, 6.5cqw) var(--topbar-right, 6.4cqw) 0 var(--topbar-left, 7.2cqw);
 }
 
 .link {
