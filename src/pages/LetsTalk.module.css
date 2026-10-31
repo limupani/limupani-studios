@@ -4,7 +4,7 @@
   /* this design puts the home icon a little closer to the corner than the shop does */
   --topbar-top: 4.9cqw;
   --topbar-left: 6.1cqw;
-  padding-bottom: 8cqw;
+  padding-bottom: 45cqw;
   text-align: center;
 }
 
@@ -20,19 +20,19 @@
 
 .heading {
   margin: 11.1cqw 0 0;
-  font-size: 6.4cqw;
+  font-size: 6.15cqw;
   line-height: 1;
 }
 
 .intro {
   max-width: 78cqw;
   margin: 3.4cqw auto 0;
-  font-size: 5.2cqw;
+  font-size: 6.15cqw;
   line-height: 4.62cqw;
 }
 
 .links {
-  margin: 1cqw 0 0;
+  margin: 3cqw 0 0;
   padding: 0;
   list-style: none;
 }
@@ -45,7 +45,7 @@
   color: var(--color-link);
   font-family: var(--font-links);
   font-size: 4.25cqw;
-  line-height: 1.2;
+  line-height: 1.5;
   text-decoration: none;
 }
 
