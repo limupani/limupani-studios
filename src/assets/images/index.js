@@ -23,6 +23,10 @@ import pencil from './doodles/pencil.png'
 import person from './doodles/person.png'
 import star from './doodles/star.png'
 import worm from './doodles/worm.png'
+import candy from './doodles/candy.png'
+import butterfly from './doodles/butterfly.png'
+import crown from './doodles/crown.png'
+import lemon from './doodles/lemon.png'
 
 import home from './ui/home.png'
 import cart from './ui/cart.png'
@@ -41,12 +45,13 @@ import back from './handwriting/back.png'
 import bring from './handwriting/bring.png'
 import childLike from './handwriting/child-like.png'
 import wonder from './handwriting/wonder.png'
+import tagline from './handwriting/tagline.png'
 
 export const images = {
   brand: { starLogo, logoBnw },
   buttons: { shop, comics, letsTalk, tabloids },
-  doodles: { ant, apple, bread, car, cloud, dino, hand, house, pencil, person, star, worm },
-  handwriting: { bring, back, childLike, wonder },
+  doodles: { ant, apple, bread, car, cloud, dino, hand, house, pencil, person, star, worm, butterfly, lemon, candy, crown },
+  handwriting: { bring, back, childLike, wonder, tagline },
   ui: { home, cart, close, modalFrame },
   details: { uv, water, reuse },
   categories: { stickers, keychains, prints },
