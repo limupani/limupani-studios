@@ -28,6 +28,10 @@ export const shop = {
   // Shown instead of the price when a product's stock is 0
   soldOutLabel: 'sold out',
 
+  // The product window
+  addToCartLabel: 'add to cart',
+  addedLabel: 'added!',
+
   categories: [
     { id: 'stickers', label: 'stickers', icon: categories.stickers, iconWidth: 65 },
     { id: 'keychains', label: 'keychains', icon: categories.keychains, iconWidth: 159 },

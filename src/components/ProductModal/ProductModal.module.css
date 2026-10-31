@@ -1,0 +1,357 @@
+/* ==========================================================================
+   Product window. Every size is in "cqw": 1cqw = 1% of the window's width,
+   so the whole window scales as one piece. Numbers were measured from the
+   design (a window 572 px wide, 765 px tall).
+   ========================================================================== */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: 2vh 0;
+  background: var(--color-overlay);
+}
+
+.box {
+  position: relative;
+  /* 77.4% of the page column, but never taller than the screen */
+  width: min(calc(min(100vw, var(--content-max-width)) * 0.774), calc(92vh * 572 / 765));
+  width: min(calc(min(100vw, var(--content-max-width)) * 0.774), calc(92dvh * 572 / 765));
+  aspect-ratio: 572 / 765;
+  container-type: inline-size;
+  background: #fff;
+  color: var(--color-text);
+}
+
+/* hand-drawn border (stretched to fit) */
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---- close (X) ---- */
+.close {
+  position: absolute;
+  top: 2.27cqw;
+  right: 1.75cqw;
+  width: 5.94cqw;
+  height: 5.94cqw;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.close img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* makes the tap area bigger than the icon */
+.close::after,
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+}
+
+/* ---- slides ---- */
+.viewport {
+  position: absolute;
+  left: 4.9cqw;
+  top: 7.52cqw;
+  width: 90.21cqw;
+  height: 83.92cqw;
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 1.84cqw;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  user-select: none;
+}
+
+/* ---- dots ---- */
+.dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 87.76cqw; /* measured from the top of the slide area (95.28cqw from the window top) */
+  display: flex;
+  justify-content: center;
+  gap: 3.67cqw;
+}
+
+.dot {
+  position: relative;
+  width: 1.22cqw;
+  height: 1.22cqw;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #aaa;
+  cursor: pointer;
+}
+
+.dotActive {
+  background: #222;
+}
+
+/* ---- text slide ---- */
+.details {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.detailsTitle {
+  position: absolute;
+  top: 2.45cqw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 6.47cqw;
+  line-height: 1;
+}
+
+.icons {
+  position: absolute;
+  top: 11.5cqw;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2cqw;
+}
+
+.icons img {
+  display: block;
+  width: auto;
+  user-select: none;
+}
+
+.icons img:nth-child(1) {
+  height: 9.6cqw;
+}
+
+.icons img:nth-child(2),
+.icons img:nth-child(3) {
+  height: 8.04cqw;
+}
+
+.points {
+  position: absolute;
+  top: 25.7cqw;
+  left: 7.95cqw;
+  width: 74cqw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: point;
+  font-size: 6.6cqw;
+  line-height: 5.07cqw;
+}
+
+.points li {
+  display: grid;
+  grid-template-columns: 5.6cqw 1fr;
+  margin-bottom: 2.62cqw;
+  counter-increment: point;
+}
+
+.points li::before {
+  content: counter(point) '.';
+}
+
+.size {
+  position: absolute;
+  top: 70.4cqw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 6.47cqw;
+  line-height: 5.5cqw;
+}
+
+.size span {
+  display: block;
+  white-space: pre; /* keeps the double space in "Size:  Medium" */
+}
+
+/* ---- name + price ---- */
+.info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 101.22cqw;
+}
+
+.titles {
+  position: absolute;
+  left: 6.9cqw;
+  top: 0;
+  margin: 0;
+  font-size: 8.1cqw;
+  line-height: 6.47cqw;
+}
+
+.titles span {
+  display: block;
+}
+
+.price {
+  position: absolute;
+  right: 7.17cqw;
+  top: 6.8cqw;
+  margin: 0;
+  font-size: 7.95cqw;
+  line-height: 6.47cqw;
+  color: var(--color-price);
+}
+
+/* ---- quantity + add to cart ---- */
+.controls {
+  position: absolute;
+  left: 6.82cqw;
+  right: 6.64cqw;
+  top: 117.65cqw;
+  height: 10.14cqw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepper {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 30.6cqw;
+  height: 100%;
+  padding: 0 0.5cqw;
+  border: max(1.5px, 0.35cqw) solid var(--color-ink);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.stepperDisabled {
+  opacity: 0.4;
+}
+
+.stepButton {
+  display: grid;
+  place-items: center;
+  width: 12cqw;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+}
+
+.stepButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.stepButton svg {
+  width: 3.6cqw;
+  height: 3.6cqw;
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.quantity {
+  text-align: center;
+  font-size: 7.5cqw;
+  line-height: 1;
+}
+
+.addButton {
+  width: 43.88cqw;
+  height: 100%;
+  padding: 0;
+  border: max(1.5px, 0.35cqw) solid var(--color-ink);
+  border-radius: 999px;
+  background: var(--color-cta);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 7.8cqw;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+.addButton:hover:not(:disabled),
+.addButton:focus-visible {
+  transform: translate(-0.3cqw, -0.3cqw);
+  filter: drop-shadow(0.5cqw 0.5cqw 0 var(--button-shadow-color));
+}
+
+.addButton:active:not(:disabled) {
+  transform: none;
+  filter: none;
+}
+
+.addButton:disabled {
+  background: #eee;
+  color: #999;
+  cursor: default;
+}
+
+/* ---- keyboard focus ---- */
+.close:focus-visible,
+.dot:focus-visible,
+.stepButton:focus-visible,
+.addButton:focus-visible,
+.track:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .addButton {
+    transition: none;
+  }
+}

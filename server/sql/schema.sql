@@ -16,6 +16,10 @@ create table if not exists products (
   created_at  timestamptz not null default now()
 );
 
+-- Extra pictures for the product window (in the order they appear after the first).
+-- Added later, so it is its own statement: safe on databases that already exist.
+alter table products add column if not exists gallery text[] not null default '{}';
+
 create index if not exists products_category_idx on products (category) where active;
 
 -- SECURITY: Supabase exposes every table in the "public" schema through a public

@@ -26,6 +26,12 @@ import worm from './doodles/worm.png'
 
 import home from './ui/home.png'
 import cart from './ui/cart.png'
+import close from './ui/close.png'
+import modalFrame from './ui/modal-frame.png'
+
+import uv from './details/uv.png'
+import water from './details/water.png'
+import reuse from './details/reuse.png'
 
 import stickers from './categories/stickers.png'
 import keychains from './categories/keychains.png'
@@ -41,6 +47,7 @@ export const images = {
   buttons: { shop, comics, letsTalk, tabloids },
   doodles: { ant, apple, bread, car, cloud, dino, hand, house, pencil, person, star, worm },
   handwriting: { bring, back, childLike, wonder },
-  ui: { home, cart },
+  ui: { home, cart, close, modalFrame },
+  details: { uv, water, reuse },
   categories: { stickers, keychains, prints },
 }

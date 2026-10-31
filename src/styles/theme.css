@@ -29,6 +29,11 @@
   --button-shadow-hover-y: 0.8cqw;
   --button-lift: 0.35cqw; /* how far the button lifts on hover */
 
+  /* Product window */
+  --color-price: #c34044; /* the red price */
+  --color-cta: #fde572; /* the yellow add-to-cart button */
+  --color-overlay: rgba(255, 255, 255, 0.82); /* fades the shop behind the window */
+
   /* Shop page */
   --color-card-border: #4a4a4a; /* the hand-drawn frame around each product */
   --shop-grid-columns: 2; /* products per row */

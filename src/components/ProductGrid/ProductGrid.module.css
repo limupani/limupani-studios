@@ -9,7 +9,39 @@
 }
 
 .item {
+  position: relative;
   min-width: 0;
+}
+
+/* the click area: covers the card and its name */
+.hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hit:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 6px;
+}
+
+.card {
+  transition: transform 140ms ease;
+}
+
+.item:hover .card {
+  transform: translateY(-0.5cqw);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
 }
 
 .card {

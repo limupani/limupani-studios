@@ -50,6 +50,26 @@ add a row to add a product, change `stock` to update inventory, untick
 `active` to hide a product. For the picture, put the image file in
 `public/products/` and set `image_url` to `/products/your-file.jpg`.
 
+### The product window (opens when you click a product)
+- **Pictures:** the first slide is the product's `image_url`. To add more
+  pictures (e.g. a photo of the sticker in a hand), put the files in
+  `public/products/` and list them in the product's `gallery` column. When
+  `gallery` has pictures, they replace the first slide and are shown in that order.
+- **Text slide:** written once per product *type* in `src/config/productDetails.js`
+  (title, little drawings, numbered points, size). Every "Matte Sticker" shares it.
+  A type with no block there simply has no text slide.
+- **Existing database?** Run this once in Supabase's SQL Editor (it adds the column):
+  ```sql
+  alter table products add column if not exists gallery text[] not null default '{}';
+  update products set gallery = array['/products/browns-blanket-art.jpg', '/products/browns-blanket-photo.jpg']
+    where name = 'Brown''s Blanket';
+  ```
+  Do this **before** deploying the new API code, or the shop will show an error.
+- **Add to cart** keeps `{ id, qty }` in the browser (`src/context/CartContext.jsx`).
+  It does not store prices: the server must re-check price and stock on every order.
+- The open product is in the address (`/shop?product=1`), so the back button
+  closes the window and the link can be shared.
+
 ### API
 | Request                            | What it does                      |
 | ---------------------------------- | --------------------------------- |
@@ -92,9 +112,10 @@ when you are ready. The footer is added automatically to every page by
 src/
   assets/images/   all drawings + index.js (the image registry)
   components/      Layout, Footer, Scene (landing artwork), PageShell,
-                   TopBar, CategoryTabs, ProductGrid, DesignCanvas
+                   TopBar, CategoryTabs, ProductGrid, ProductModal, DesignCanvas
   config/          the editable content files listed above
   api/, hooks/     loading products from the API (useProducts)
+  context/         the cart (CartContext)
   pages/           one file per page
   styles/          theme.css (variables) + global.css (resets)
   routes.jsx       which page lives at which address

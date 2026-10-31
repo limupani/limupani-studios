@@ -1,9 +1,10 @@
-import { useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { images } from '../assets/images'
 import DesignCanvas from '../components/DesignCanvas/DesignCanvas'
 import TopBar from '../components/TopBar/TopBar'
 import CategoryTabs from '../components/CategoryTabs/CategoryTabs'
 import ProductGrid from '../components/ProductGrid/ProductGrid'
+import ProductModal from '../components/ProductModal/ProductModal'
 import { pages } from '../config/pages'
 import { shop } from '../config/shop'
 import useDocumentTitle from '../hooks/useDocumentTitle'
@@ -23,7 +24,31 @@ export default function Shop() {
     setSearchParams(id ? { category: id } : {})
   }
 
+  // The open product is in the address too (/shop?product=1), so the back button
+  // closes the window and the link can be shared.
+  const navigate = useNavigate()
+  const location = useLocation()
+  const openProductId = searchParams.get('product')
+
+  const openProduct = (product) => {
+    const next = new URLSearchParams(searchParams)
+    next.set('product', String(product.id))
+    setSearchParams(next, { state: { modal: true } })
+  }
+
+  const closeProduct = () => {
+    if (location.state?.modal) {
+      navigate(-1) // we opened it ourselves, so just go back
+    } else {
+      const next = new URLSearchParams(searchParams)
+      next.delete('product')
+      setSearchParams(next, { replace: true })
+    }
+  }
+
   const { products, status, reload } = useProducts()
+
+  const activeProduct = products.find((p) => String(p.id) === openProductId) ?? null
 
   const visibleProducts = selected ? products.filter((p) => p.category === selected) : products
   const heading = selected
@@ -58,11 +83,15 @@ export default function Shop() {
 
         {status === 'ready' &&
           (visibleProducts.length > 0 ? (
-            <ProductGrid products={visibleProducts} />
+            <ProductGrid products={visibleProducts} onSelect={openProduct} />
           ) : (
             <p className={styles.message}>{shop.emptyMessage}</p>
           ))}
       </div>
+
+      {activeProduct && (
+        <ProductModal key={activeProduct.id} product={activeProduct} onClose={closeProduct} />
+      )}
     </DesignCanvas>
   )
 }

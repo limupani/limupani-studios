@@ -34,6 +34,8 @@ export const cartPage = {
   path: '/cart',
   title: 'Cart',
   message: 'Your cart is empty.',
+  // Shown instead once something has been added. {count} becomes the number of items.
+  filledMessage: 'Items in your cart: {count}',
 }
 
 export const notFound = {

@@ -10,6 +10,7 @@ function toProduct(row) {
     price: row.price,
     image: row.image_url,
     stock: row.stock,
+    gallery: row.gallery ?? [],
   }
 }
 
@@ -22,7 +23,7 @@ export default function productsRouter(db) {
     const { category } = req.query
 
     const params = []
-    let sql = 'select id, name, type, category, price, image_url, stock from products where active = true'
+    let sql = 'select id, name, type, category, price, image_url, stock, gallery from products where active = true'
     if (typeof category === 'string' && category) {
       params.push(category)
       sql += ' and category = $1'
