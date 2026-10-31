@@ -32,7 +32,7 @@ export const landing = {
     { id: 'logo', image: brand.starLogo, x: 287, y: 113, width: 166, alt: 'Limupani Studios' },
 
     // Background doodles
-    { id: 'tagline', image: handwriting.tagline, x: 250, y: 300, width: 260 },
+    { id: 'tagline', image: handwriting.tagline, x: 235, y: 300, width: 260 },
     { id: 'candy', image: doodles.candy, x: 50, y: 100, width: 90 },
     { id: 'butterfly', image: doodles.butterfly, x: 150, y: 270, width: 40, rotate: 18 },
     { id: 'lemon', image: doodles.lemon, x: 570, y: 250, width: 44, rotate: 340 },
