@@ -44,7 +44,7 @@
   border-radius: 50%;
   background: var(--color-cta);
   color: var(--color-text);
-  font-size: 2.9cqw;
+  font-size: 4.5cqw;
   line-height: 1;
   pointer-events: none;
 }
