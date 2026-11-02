@@ -3,8 +3,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 /**
  * The shopping cart: a list of { id, qty } (product id + how many).
  * It is remembered in the browser, so a refresh doesn't empty it.
- * Prices are NOT stored here: the server must always work out the real
- * price and check the stock again when an order is placed.
+ * Prices are NOT stored here: the cart page looks them up from the products
+ * list each time, so a price change in the database shows up straight away.
  */
 const STORAGE_KEY = 'limupani-cart'
 const CartContext = createContext(null)
@@ -38,8 +38,21 @@ export function CartProvider({ children }) {
     })
   }, [])
 
+  const setQuantity = useCallback((id, qty) => {
+    setItems((current) => current.map((i) => (i.id === id ? { ...i, qty: Math.max(1, qty) } : i)))
+  }, [])
+
+  const removeItem = useCallback((id) => {
+    setItems((current) => current.filter((i) => i.id !== id))
+  }, [])
+
+  const clearCart = useCallback(() => setItems([]), [])
+
   const count = items.reduce((total, i) => total + i.qty, 0)
-  const value = useMemo(() => ({ items, count, addItem }), [items, count, addItem])
+  const value = useMemo(
+    () => ({ items, count, addItem, setQuantity, removeItem, clearCart }),
+    [items, count, addItem, setQuantity, removeItem, clearCart],
+  )
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }

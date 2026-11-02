@@ -1,0 +1,53 @@
+.stepper {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  box-sizing: border-box;
+  width: var(--stepper-width, 100%);
+  height: var(--stepper-height, 100%);
+  padding: 0 var(--stepper-pad, 0);
+  border: var(--stepper-border, 1.5px) solid var(--color-ink);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.button {
+  display: grid;
+  place-items: center;
+  width: var(--stepper-button, 3rem);
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.button:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 3px;
+}
+
+.button svg {
+  width: var(--stepper-icon, 1rem);
+  height: var(--stepper-icon, 1rem);
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: var(--stepper-stroke, 2);
+  stroke-linecap: round;
+}
+
+.quantity {
+  text-align: center;
+  font-size: var(--stepper-font, 1rem);
+  line-height: 1;
+}

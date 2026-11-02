@@ -31,6 +31,7 @@ import lemon from './doodles/lemon.png'
 import home from './ui/home.png'
 import cart from './ui/cart.png'
 import close from './ui/close.png'
+import bin from './ui/bin.png'
 import modalFrame from './ui/modal-frame.png'
 
 import uv from './details/uv.png'
@@ -52,7 +53,7 @@ export const images = {
   buttons: { shop, comics, letsTalk, tabloids },
   doodles: { ant, apple, bread, car, cloud, dino, hand, house, pencil, person, star, worm, butterfly, lemon, candy, crown },
   handwriting: { bring, back, childLike, wonder, tagline },
-  ui: { home, cart, close, modalFrame },
+  ui: { home, cart, close, bin, modalFrame },
   details: { uv, water, reuse },
   categories: { stickers, keychains, prints },
 }

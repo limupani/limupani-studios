@@ -1,0 +1,177 @@
+/* Sizes are in cqw (1% of the page width), measured from the design (738 px wide). */
+
+.page {
+  /* this design puts "clear cart" a bit further in from the right edge */
+  --topbar-top: 6.2cqw;
+  --topbar-right: 8.5cqw;
+  padding-bottom: 8cqw;
+  text-align: center;
+}
+
+/* ---- top right: clear cart ---- */
+.clear {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.clear img {
+  display: block;
+  width: 4.6cqw;
+  height: auto;
+}
+
+.clearLabel {
+  margin-top: -0.08cqw;
+  font-size: 5.2cqw;
+  line-height: 3.8cqw;
+}
+
+.clearLabel span {
+  display: block;
+}
+
+.clear:hover {
+  opacity: 0.7;
+}
+
+.clear:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 4px;
+}
+
+/* ---- cart icon + heading ---- */
+.icon {
+  display: block;
+  width: 13.3cqw;
+  height: auto;
+  margin: 2.55cqw auto 0;
+  user-select: none;
+}
+
+.heading {
+  margin: 1.4cqw 0 0;
+  font-size: 6.15cqw;
+  line-height: 1;
+}
+
+/* ---- products ---- */
+.lines {
+  list-style: none;
+  margin: 11.1cqw 0 0;
+  padding: 0;
+  display: grid;
+  row-gap: 8.1cqw;
+  text-align: left;
+}
+
+/* ---- delivery + total ---- */
+.summary {
+  margin: 4.6cqw 7.7cqw 0;
+}
+
+.summaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10.6cqw;
+  padding: 1.2cqw 3.5cqw 0;
+  border-top: max(1px, 0.14cqw) solid var(--color-card-border);
+}
+
+.totalRow {
+  height: 11.9cqw;
+  padding-top: 0.4cqw;
+}
+
+.label {
+  font-size: 5.03cqw;
+  line-height: 1;
+}
+
+.amount {
+  font-size: 6.2cqw;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.totalAmount {
+  color: var(--color-price);
+  font-size: 6.3cqw;
+}
+
+/* ---- confirm on WhatsApp ---- */
+.checkout {
+  display: block;
+  box-sizing: border-box;
+  width: 67cqw;
+  height: 7.86cqw;
+  margin: 5cqw auto 0;
+  padding: 0;
+  border: max(1px, 0.14cqw) solid var(--color-ink);
+  border-radius: 999px;
+  background: var(--color-cta);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 5.7cqw;
+  line-height: 7.5cqw;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+.checkout:hover:not(:disabled),
+.checkout:focus-visible {
+  transform: translate(-0.3cqw, -0.3cqw);
+  filter: drop-shadow(0.5cqw 0.5cqw 0 var(--button-shadow-color));
+}
+
+.checkout:active:not(:disabled) {
+  transform: none;
+  filter: none;
+}
+
+.checkout:disabled {
+  background: #eee;
+  color: #999;
+  cursor: default;
+}
+
+.checkout:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 4px;
+}
+
+/* ---- empty / loading / error ---- */
+.message {
+  margin: 10cqw 0 0;
+  font-size: 5cqw;
+}
+
+.message p {
+  margin: 0 0 2cqw;
+}
+
+.messageLink {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-accent);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checkout {
+    transition: none;
+  }
+}

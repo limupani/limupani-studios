@@ -1,0 +1,118 @@
+/* Sizes are in cqw (1% of the page width), measured from the design (738 px wide). */
+
+.line {
+  display: grid;
+  grid-template-columns: 17.34cqw 1fr auto;
+  column-gap: 3.1cqw;
+  padding: 0 11.1cqw;
+}
+
+/* picture in a thin square frame */
+.thumb {
+  box-sizing: border-box;
+  width: 17.34cqw;
+  height: 17.34cqw;
+  padding: 0.8cqw;
+  border: max(1px, 0.14cqw) solid var(--color-card-border);
+  background: #fff;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.faded {
+  opacity: 0.45;
+}
+
+.details {
+  min-width: 0;
+  padding-top: 1.05cqw;
+}
+
+.titles {
+  margin: 0;
+  font-size: 5.03cqw;
+  line-height: 4.07cqw;
+}
+
+.titles span {
+  display: block;
+}
+
+.name {
+  color: var(--color-accent);
+}
+
+/* sizes for the shared quantity stepper */
+.stepper {
+  margin-top: 1.1cqw;
+  --stepper-width: 20.8cqw;
+  --stepper-height: 6.8cqw;
+  --stepper-border: max(1px, 0.14cqw);
+  --stepper-button: 8.4cqw;
+  --stepper-icon: 2.3cqw;
+  --stepper-font: 4.4cqw;
+  --stepper-stroke: 2.8;
+}
+
+/* bin on top, price underneath */
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1.35cqw 0 1cqw;
+}
+
+.remove {
+  position: relative;
+  width: 3cqw;
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 140ms ease;
+}
+
+.remove img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* bigger tap area than the icon */
+.remove::after {
+  content: '';
+  position: absolute;
+  inset: -12px;
+}
+
+.remove:hover,
+.remove:focus-visible {
+  opacity: 1;
+}
+
+.remove:focus-visible {
+  outline: 2px dashed var(--color-ink);
+  outline-offset: 3px;
+}
+
+.price {
+  margin: 0;
+  font-size: 6.2cqw;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .remove {
+    transition: none;
+  }
+}

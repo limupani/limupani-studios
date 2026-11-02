@@ -7,7 +7,7 @@ import { useCart } from '../../context/CartContext'
 import formatPrice from '../../utils/formatPrice'
 import Carousel from './Carousel'
 import DetailsSlide from './DetailsSlide'
-import QuantityStepper from './QuantityStepper'
+import QuantityStepper from '../QuantityStepper/QuantityStepper'
 import styles from './ProductModal.module.css'
 
 const FOCUSABLE = 'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'

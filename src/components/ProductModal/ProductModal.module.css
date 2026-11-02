@@ -258,54 +258,15 @@
   height: 10.14cqw;
   display: flex;
   justify-content: space-between;
-}
 
-.stepper {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  width: 30.6cqw;
-  height: 100%;
-  padding: 0 0.5cqw;
-  border: max(1.5px, 0.35cqw) solid var(--color-ink);
-  border-radius: 999px;
-  background: #fff;
-}
-
-.stepperDisabled {
-  opacity: 0.4;
-}
-
-.stepButton {
-  display: grid;
-  place-items: center;
-  width: 12cqw;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: none;
-  cursor: pointer;
-}
-
-.stepButton:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-.stepButton svg {
-  width: 3.6cqw;
-  height: 3.6cqw;
-  fill: none;
-  stroke: var(--color-ink);
-  stroke-width: 2;
-  stroke-linecap: round;
-}
-
-.quantity {
-  text-align: center;
-  font-size: 7.5cqw;
-  line-height: 1;
+  /* size of the shared quantity stepper inside this window */
+  --stepper-width: 30.6cqw;
+  --stepper-height: 100%;
+  --stepper-pad: 0.5cqw;
+  --stepper-border: max(1.5px, 0.35cqw);
+  --stepper-button: 12cqw;
+  --stepper-icon: 3.6cqw;
+  --stepper-font: 7.5cqw;
 }
 
 .addButton {
@@ -343,7 +304,6 @@
 /* ---- keyboard focus ---- */
 .close:focus-visible,
 .dot:focus-visible,
-.stepButton:focus-visible,
 .addButton:focus-visible,
 .track:focus-visible {
   outline: 2px dashed var(--color-ink);

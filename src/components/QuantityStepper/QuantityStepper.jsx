@@ -1,15 +1,20 @@
-import styles from './ProductModal.module.css'
+import styles from './QuantityStepper.module.css'
 
-/** − 1 + control. Stays between `min` and `max`. */
+/**
+ * − 1 + control. Stays between `min` and `max`.
+ * Its size comes from CSS variables set by whoever uses it
+ * (--stepper-width, --stepper-height, --stepper-button, --stepper-icon,
+ * --stepper-font, --stepper-border, --stepper-pad).
+ */
 export default function QuantityStepper({ value, min = 1, max, onChange, disabled }) {
   const canDecrease = !disabled && value > min
   const canIncrease = !disabled && value < max
 
   return (
-    <div className={`${styles.stepper} ${disabled ? styles.stepperDisabled : ''}`} role="group" aria-label="Quantity">
+    <div className={`${styles.stepper} ${disabled ? styles.disabled : ''}`} role="group" aria-label="Quantity">
       <button
         type="button"
-        className={styles.stepButton}
+        className={styles.button}
         aria-label="Decrease quantity"
         disabled={!canDecrease}
         onClick={() => onChange(value - 1)}
@@ -23,7 +28,7 @@ export default function QuantityStepper({ value, min = 1, max, onChange, disable
       </span>
       <button
         type="button"
-        className={styles.stepButton}
+        className={styles.button}
         aria-label="Increase quantity"
         disabled={!canIncrease}
         onClick={() => onChange(value + 1)}
