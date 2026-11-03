@@ -51,11 +51,11 @@
 
 /* two digits / "99+" need smaller numbers to fit */
 .badgeWide {
-  font-size: 4.5cqw;
+  font-size: 3.5cqw;
 }
 
 .badgeLong {
-  font-size: 4.5cqw;
+  font-size: 3.5cqw;
 }
 
 .link:hover,
