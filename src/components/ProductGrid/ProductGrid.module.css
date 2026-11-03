@@ -96,7 +96,7 @@
 .name {
   margin: 1cqw 0 0;
   text-align: center;
-  color: #6db5fc;
+  color: var(--color-accent);
   font-size: 5cqw;
   line-height: 1.1;
 }
